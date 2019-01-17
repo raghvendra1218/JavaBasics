@@ -1,10 +1,26 @@
 package com.raghvendra;
 
 public abstract class ListItem {
-    private int next;
-    private int previous;
+    protected ListItem rightLink = null;
+    protected ListItem leftLink = null;
 
-    public abstract void nextItem();
-    public abstract void previousItem();
-    public abstract int compareTo();
+    protected Object value;
+
+    public ListItem(Object value) {
+        this.value = value;
+    }
+
+    public abstract ListItem next();
+    public abstract ListItem setNext(ListItem item);
+    public abstract ListItem previous();
+    public abstract ListItem setPrevious(ListItem item);
+    public abstract int compareTo(ListItem item);
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
 }
