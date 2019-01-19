@@ -102,5 +102,12 @@ public class MyLinkedList implements NodeList {
                 root = root.next();
             }
         }
+        //using recursion
+//        if(root == null){
+//            System.out.println("List is empty.");
+//        } else {
+//            System.out.println(root.getValue());
+//            traverse(root.next());
+//        }
     }
 }
