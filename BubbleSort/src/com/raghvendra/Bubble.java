@@ -6,7 +6,7 @@ package com.raghvendra;
 public class Bubble {
     public int[] bubbleSort(int[] arr){
         for(int k = 0; k < arr.length-1; k++) {
-            for(int i =0, j=1; j < arr.length; i++, j++){
+            for(int i =0, j=1; j < arr.length-k; i++, j++){
                 int temp = arr[i];                          // temp = 5,
                 if(arr[i] > arr[j]){                        //
                     arr[i] = arr[j];
