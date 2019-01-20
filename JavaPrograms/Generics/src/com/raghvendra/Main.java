@@ -38,5 +38,6 @@ public class Main {
         System.out.println( sharks.getName() +" : " +sharks.ranking());
         System.out.println(loren.getName() +" : " +loren.ranking());
         System.out.println(melbourne.getName() + " : " + melbourne.ranking());
+        System.out.println("Ranking of sharks to melbourne = "+sharks.compareTo(melbourne));
     }
 }
