@@ -1,13 +1,12 @@
 package com.raghvendra;
 
-import java.util.Arrays;
-
-import static java.lang.Math.log;
+//Time complexity : O(nlogn)
+//Space complexity: O(n) : is proportional to the number of elements in the list, becoz we are creating temporary arrays (of combined size of n).
 
 public class MergeSort {
     public int[] mergeSort(int[] arr){
         int arrLength = arr.length;
-        if(arrLength < 2) {
+        if(arrLength < 2) {     //Base condition, point to get out of the recursion
             return arr;
         } else {
             int mid = arrLength/2;
