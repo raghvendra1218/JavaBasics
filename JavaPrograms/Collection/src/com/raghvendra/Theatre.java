@@ -2,9 +2,20 @@ package com.raghvendra;
 
 import java.util.* ;
 
+// As we move down the hierarchy, interface becomes more specialised.
+// so we can only replace classes with all the classes which implement one of the core collection interfaces at the same level.
+
+
 public class Theatre {
     private String theatreName;
-    private Collection<Seat> seats =  new ArrayList<Seat>();
+    private List<Seat> seats = new ArrayList<Seat>();
+//    private Collection<Seat> seats =  new ArrayList<Seat>(); //will work
+//    private Collection<Seat> seats =  new LinkedList<Seat>(); //will work
+//    private Collection<Seat> seats =  new LinkedHashSet<Seat>(); //will work
+//    private Collection<Seat> seats =  new HashSet<Seat>(); //will work
+//    private Collection<Seat> seats =  new LinkedHashSet<Seat>(); //will work
+//  private Collection<Seat> seats =  new TreeSet<Seat>(); // will not work, because it's two level down the hierarchy (it extends sortedsets
+
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -23,18 +34,27 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber) {
-        Seat requestedSeat = null;
-        for(Seat seat: seats) {
-            if(seat.getSeatNumber().equals(seatNumber)) {
-                requestedSeat = seat;
-                break;
-            }
-        }
-        if(requestedSeat == null) {
-            System.out.println("There is no such seat Number");
+        Seat requestedSeat = new Seat(seatNumber);
+        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+        if(foundSeat >= 0) {
+            return seats.get(foundSeat).reserve();
+        } else {
+            System.out.println("There is no seat with seat number"+ seatNumber);
             return false;
         }
-        return requestedSeat.reserve();
+
+//        Seat requestedSeat = null;
+//        for(Seat seat: seats) {
+//            if(seat.getSeatNumber().equals(seatNumber)) {
+//                requestedSeat = seat;
+//                break;
+//            }
+//        }
+//        if(requestedSeat == null) {
+//            System.out.println("There is no such seat Number");
+//            return false;
+//        }
+//        return requestedSeat.reserve();
     }
 
     public boolean cancelSeat(String seatNumber) {
