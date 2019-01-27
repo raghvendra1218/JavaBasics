@@ -8,7 +8,7 @@ import java.util.* ;
 
 public class Theatre {
     private String theatreName;
-    private List<Seat> seats = new ArrayList<Seat>();
+    public List<Seat> seats = new ArrayList<Seat>();
 //    private Collection<Seat> seats =  new ArrayList<Seat>(); //will work
 //    private Collection<Seat> seats =  new LinkedList<Seat>(); //will work
 //    private Collection<Seat> seats =  new LinkedHashSet<Seat>(); //will work
