@@ -1,5 +1,12 @@
 package com.raghvendra;
 
+//Strategy for defining Immutable classes
+//1. Don't provide setter methods
+//2. Make all fields private and final
+//3. Don't allow subclasses to override methods, can be done either making entire class as final (so that it cannot be subclassed,
+//   or making the methords and member variables as final, a more sophisticated way is to make the constructor private and construct instances in factory methods).
+//4. If the instance fields includes references to mutable objects, don't allow those objects to be changed.
+
 import java.util.*;
 
 public class Main {
